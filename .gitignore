@@ -64,4 +64,6 @@ target/
 
 # Project ignores
 taz/.ropeproject*
-taz/helpers/.ropeproject*
+taz/database/.ropeproject*
+taz/sources/reddit/.ropeproject*
+taz/database/settings.py

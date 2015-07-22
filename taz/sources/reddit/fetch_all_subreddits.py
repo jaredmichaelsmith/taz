@@ -1,3 +1,11 @@
+#!/usr/bin/env python
+
+""" fetch_all_subreddits.py - Gathers metadata of all subreddits currently on Reddit """
+
+__author__ = "Rob Knight, Gavin Huttley, and Peter Maxwell"
+__copyright__ = "Copyright 2007, The Cogent Project"
+__license__ = "MIT"
+
 import json
 import csv
 import time
@@ -39,7 +47,9 @@ def main():
         write_to_csv(subreddit_writer, parsed_json)
 
         while True:
-            print after_param
+            if after_param is None:
+                break
+
             pagination_url = "{}?limit={}&after={}".format(base_url, limit, after_param)
             time.sleep(delay)
             resp = requests.get(pagination_url, headers=headers)
@@ -48,9 +58,6 @@ def main():
             after_param = parsed_json['data']['after']
 
             write_to_csv(subreddit_writer, parsed_json)
-
-            if after_param is None:
-                break
 
 
 if __name__ == "__main__":
