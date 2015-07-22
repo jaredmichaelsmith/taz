@@ -59,4 +59,9 @@ docs/_build/
 # PyBuilder
 target/
 
+# PyCharm
+.idea
 
+# Project ignores
+taz/.ropeproject*
+taz/helpers/.ropeproject*
